@@ -1,22 +1,15 @@
-class three {
+import java.util.Scanner;
+class three{
 	public static void main(String[] args){
-		for (int i=2 ; i<=100 ; i++){
-			if ( i%5==0){
-				System.out.println("Buzz");
-			}
-			if ( i%3==0) {
-				System.out.println("Fizz");
-			}
-			if (i%3 ==0 & i%5==0 ){
-				System.out.println("Pop");
-			}
-
-			else {
-				System.out.println(i);
-			}
+		Scanner in = new Scanner(System.in);
+		System.out.println("Enter the value -:");
+		int val=in.nextInt();
+		if (val%5==0){
+			System.out.println(val/5);
+		}
+		
+		else{
+			System.out.println((val/5)+1);
 		}
 	}
 }
-
-		
-		
