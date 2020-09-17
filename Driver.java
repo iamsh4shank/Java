@@ -1,14 +1,10 @@
-
-import java.util.*;
 class BSTNode {
     int data;
-    BSTNode left;
-    BSTNode right;
+    BSTNode left, right;
 
-    public BSTNode() {};
-
-    public BSTNode(int data) {
+    BSTNode(int data) {
         this.data = data;
+        this.left = this.right = null;
     }
 
     public void insert(int key) {
@@ -19,19 +15,13 @@ class BSTNode {
             if (right == null) right = new BSTNode(key);
             else right.insert(key);
         } 
+
     } 
 
     public void inorder() {
         if (left != null) left.inorder();
         System.out.print(data+ " ");
         if (right != null) right.inorder();
-    }
-
-    public boolean search(int key) {
-        if (key == data) return true;
-        else if (key<data && left != null) return left.search(key);
-        else if (key>data && right != null) return right.search(key);
-        else return false; 
     }
 
     public void preorder() {
@@ -45,6 +35,36 @@ class BSTNode {
         if (right != null) right.postorder();
         System.out.print(data+ " ");
         
+    }
+
+    public void swapLeftRight(BSTNode root) {   
+        if (root== null ||  
+                (root.left==null && root.right==null) )  
+            return ;  
+        BSTNode temp=root.left; 
+        root.left=root.right; 
+        root.right=temp; 
+        swapLeftRight(root.left);  
+        swapLeftRight(root.right);  
+    }
+
+    public int height(BSTNode root) {
+        int leftHeight = 0;
+        int rightHeight = 0;
+        if (root != null){
+            if (root.left != null){
+                leftHeight = height(root.left);
+            }
+            if (root.right != null){
+                rightHeight = height(root.right);
+            }
+        }
+    
+        if (leftHeight>rightHeight) {
+            return leftHeight+1;
+        } else {
+            return rightHeight+1;
+        }
     }
 }
 
@@ -60,11 +80,6 @@ class BST {
         else root.inorder();
     }
 
-    public boolean search(int key) {
-        if (root == null) return false;
-        else return root.search(key);
-    }
-
     public void preorder() {
         if (root == null) return;
         else root.preorder();
@@ -75,45 +90,33 @@ class BST {
         else root.postorder();
     }
 
-    public void LevelOrder(){
-        Queue<BSTNode> bstQ = new LinkedList<BSTNode>();
-        bstQ.add(root);
-     
-        while (!bstQ.isEmpty()){
-            BSTNode bstNode = bstQ.remove();
-            if (bstNode.left != null) bstQ.add(bstNode.left);
-            if (bstNode.right != null) bstQ.add(bstNode.right);
-            System.out.print(bstNode.data+" ");
+    public void swapLeftRight(BSTNode root) {  
+        if (root == null) return;
+        else root.swapLeftRight(root);  
+    }
+
+    int height(){
+        if (root == null) {
+            return 0;
+        } else {
+            return root.height(root);
         }
     }
 }
 
-public class Driver {
+class Driver {
     public static void main(String[] args) {
         BST b = new BST();
         b.insert(50);
         b.insert(20);
-        b.insert(80);
         b.insert(10);
-        System.out.println("Inorder - ");
-        b.inorder();
-        System.out.println("\n");
-        System.out.println("Preorder - ");
+        b.insert(60);
+        System.out.print("Preorder traversal: ");
         b.preorder();
-        System.out.println("\n");
-        System.out.println("Postorder - ");
-        b.postorder();
-        System.out.println("\n");
-        System.out.println("LevelOrder - ");
-        b.LevelOrder();
-        System.out.println("\n");
-        System.out.println("Is 20 there?");
-        boolean a = b.search(20);
-        System.out.print(a);
-        System.out.println("\n");
-        System.out.println("Is 30 there?");
-        boolean c = b.search(30);
-        System.out.print(c);
-        System.out.println("\n");
+        b.swapLeftRight(b.root);
+        System.out.print("\nAfter swapping : Preorder traversal: ");
+        b.preorder();
+        int x = b.height();
+        System.out.println("\nHeight of root node:" + (x-1));
     }
 }
