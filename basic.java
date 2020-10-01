@@ -1,6 +1,7 @@
 class Contact {
 	String name;
 	String email ;
+	String address;
 	String phoneNumber;
 }
 class man{
@@ -32,8 +33,10 @@ class basic{
 		Contact first = new Contact();
 		first.name = "Shashank";
 		first.phoneNumber = "9936596075";
+		first.address = "Assi";
 		myContactManager.addContact(first);
 		System.out.println(first.name);
+		System.out.println(first.address);
 }
 }
 
