@@ -1,4 +1,4 @@
-class Vehicle
+class Vehicles
 {
     int modelnumber;
     String type;
@@ -14,12 +14,12 @@ class Vehicle
         System.out.println(type);
     }
 }
-class Car extends Vehicle
+class Cars extends Vehicles
 {
     int noOfWheel;
     int noOfSeat;
 
-    void Car() 
+    void Cars() 
     {
         noOfSeat = 43567;
         noOfWheel = 34567;
@@ -44,8 +44,8 @@ class Car extends Vehicle
 class Inheritance
 {
     public static void main(String[] args){
-        Car c1 = new Car();
-        Car c2 = new Car();
+        Cars c1 = new Cars();
+        Cars c2 = new Cars();
         c1.inputC(4, 6, 123, "Car"); 
         c2.inputC(2, 2, 234, "Bike"); 
 
