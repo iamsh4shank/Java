@@ -4,11 +4,11 @@ class Contact {
 	String address;
 	String phoneNumber;
 }
-class man{
+class Man{
 	
 	Contact[] myFriends;
 	int friendsCount;
-	man(){
+	Man(){
 		myFriends= new Contact[500];
 		friendsCount= 0 ;
 	}
@@ -21,19 +21,19 @@ class man{
 		for(int i = 0 ; i <friendsCount ; i++){
 			if (myFriends[i].name.equals(searchName)){
 				return myFriends[i];
-}
-}
-return null;
-}
+			}
+		}
+	return null;
+	}
 }
 
 class basic{
 	public static void main(String[] args  ){
-		man myContactManager = new man();
+		Man myContactManager = new Man();
 		Contact first = new Contact();
-		first.name = "Shashank";
-		first.phoneNumber = "9936596075";
-		first.address = "Assi";
+		first.name = "Ramesh";
+		first.phoneNumber = "9945793202";
+		first.address = "Atlanta";
 		myContactManager.addContact(first);
 		System.out.println(first.name);
 		System.out.println(first.address);
