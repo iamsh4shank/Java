@@ -2,6 +2,7 @@ import java.util.Scanner;
 class Day{
 	public static void main(String[] args){
 		Scanner in= new Scanner(System.in);
+		System.out.println("Enter number: ");
 		int num=in.nextInt();
 		if (num==1){
 			System.out.printf("Monday");
