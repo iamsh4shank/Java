@@ -23,6 +23,23 @@ class Square implements Area,ShowArea{
         System.out.println("Area of Square is- "+area);
     }
 }
+
+class Rect implements Circle{
+  
+    Double area;
+    Scanner scan = new Scanner(System.in);
+    public void calcArea()
+    {
+        Double r = scan.nextDouble();
+        area = Math.PI*r*r;
+    }
+    public void showArea()
+    {
+        System.out.println("Area of Circle is- "+area);
+    }
+    
+}
+
 class Rect implements Area{
   
     Double area;
