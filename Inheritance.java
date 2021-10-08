@@ -35,8 +35,8 @@ class Car extends Vehicle
     }
     public void outputC()
     {
-        System.out.println("number of seat are-" + noOfSeat);
-        System.out.println("number of wheel are-" + noOfWheel);
+        System.out.println("Number of seat are-" + noOfSeat);
+        System.out.println("Number of wheel are-" + noOfWheel);
         super.output();
     }
 }
